@@ -1,14 +1,18 @@
 import java.util.Scanner;
+import java.awt.geom.*;
 
-public class Circle extends Shape implements Drawable 
-{
+public class Circle extends Shape implements Drawable {
+
     private float radius;
+
     public Circle(){
         this.readShape();
     }
+
     public Circle(float r){
         radius = r;
     }
+
     public void readShape(){
         boolean valid = false;
         do {
@@ -16,23 +20,27 @@ public class Circle extends Shape implements Drawable
             Scanner input = new Scanner(System.in);
             if (input.hasNextFloat()) {
                 radius = input.nextFloat();
-                valid = true;
-            } else System.out.println("Invalid radius!");
+                return;
+            }
+            else 
+                System.out.println("Invalid radius!");
         } while (!valid);
-        this.computeArea();
-        this.computePerimeter();
-        this.displayShape();
+
     }
+
     public void computeArea(){
-        area = (float) (Math.PI*(float)Math.pow(radius,2));
+        super.area = (float) (Math.PI * (float)Math.pow(radius,2));
     }
+
     public void computePerimeter(){
-        perimeter = (float) Math.PI*2*radius;
+        super.perimeter = (float) (Math.PI * 2 * radius);
     }
+
     public void displayShape(){
         System.out.printf("Area of circle = %f\n", area);
         System.out.printf("Perimeter of circle = %f\n", perimeter);
     }
+    
     public void draw(){
         Canvas canvas = Canvas.getCanvas();
         int position = (int)Math.random() * 100;

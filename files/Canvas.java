@@ -96,7 +96,7 @@ public class Canvas
      // Note: this is a slightly backwards way of maintaining the shape
      // objects. It is carefully designed to keep the visible shape interfaces
      // in this project clean and simple for educational purposes.
-    public void draw(Object referenceObject, String color, Shape shape)
+    public void draw(Object referenceObject, String color, java.awt.Shape shape)
     {
         objects.remove(referenceObject);   // just in case it was already there
         objects.add(referenceObject);      // add at the end
@@ -202,10 +202,10 @@ public class Canvas
      */
     private class ShapeDescription
     {
-        private Shape shape;
+        private java.awt.Shape shape;
         private String colorString;
 
-        public ShapeDescription(Shape shape, String color)
+        public ShapeDescription(java.awt.Shape shape, String color)
         {
             this.shape = shape;
             colorString = color;

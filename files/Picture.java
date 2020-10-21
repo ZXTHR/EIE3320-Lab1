@@ -1,21 +1,24 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+
 public class Picture
 {
-    private ArrayList<Shape> shapes;
+    private ArrayList<Shape> shapes = new ArrayList<Shape>();
+
     public Picture(){
-        shapes = new ArrayList<Shape>();
+    
     }
-    void addShape(Shape s)
+
+    public void addShape(Shape s)
     {
         shapes.add(s);
     }
     
-    void computeShape()
+    public void computeShape()
     {
-        for(Iterator shapeloop = shapes.iterator(); shapeloop.hasNext(); )
+        for(Iterator shapeLoop = shapes.iterator(); shapeLoop.hasNext(); )
         {
-            Shape shape = (Shape)shapeloop.next();
+            Shape shape = (Shape)shapeLoop.next();
             shape.computeArea();
             shape.computePerimeter();
         }
@@ -23,18 +26,18 @@ public class Picture
     
     public void listAllShapeTypes()
     {
-        for(Iterator shapeloop = shapes.iterator(); shapeloop.hasNext(); )
+        for(Iterator shapeLoop = shapes.iterator(); shapeLoop.hasNext(); )
         {
-            Shape shape = (Shape)shapeloop.next();
+            Shape shape = (Shape)shapeLoop.next();
             shape.displayShape();
         }
     }
     
     public void listSingleShapeType(String className)
     {
-        for(Iterator shapeloop = shapes.iterator(); shapeloop.hasNext(); )
+        for(Iterator shapeLoop = shapes.iterator(); shapeLoop.hasNext(); )
         {
-            Shape shape = (Shape)shapeloop.next();
+            Shape shape = (Shape)shapeLoop.next();
             if (className.equals(shape.getClass().getName())) {
                 shape.displayShape();
             }
