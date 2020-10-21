@@ -45,7 +45,7 @@ public class Rectangle extends Shape implements Drawable
    }
    public void draw(){
        Canvas canvas = Canvas.getCanvas();
-       int position = (int)Math.random() * 100;
+       int position = (int)(Math.random() * 100);
        canvas.draw(this, "blue", new java.awt.Rectangle(position, position, (int)length, (int)width));
    }
 }

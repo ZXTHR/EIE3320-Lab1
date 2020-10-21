@@ -43,7 +43,7 @@ public class Circle extends Shape implements Drawable {
     
     public void draw(){
         Canvas canvas = Canvas.getCanvas();
-        int position = (int)Math.random() * 100;
+        int position = (int)(Math.random() * 100);
         canvas.draw(this, "blue", new Ellipse2D.Double(position, position, (int)radius*2, (int)radius*2));
     }
 }
