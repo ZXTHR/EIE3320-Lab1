@@ -15,17 +15,20 @@ public class Circle extends Shape implements Drawable {
 
     public void readShape(){
         boolean valid = false;
+        Scanner input = new Scanner(System.in);
         do {
+            try {
             System.out.println("Please input the radius:");
-            Scanner input = new Scanner(System.in);
-            if (input.hasNextFloat()) {
-                radius = input.nextFloat();
+            radius = Float.parseFloat(input.next());
+            if (radius <= 0) {
+                System.out.println("Invalid radius!");
+            } else 
                 return;
             }
-            else 
+            catch (NumberFormatException e) {
                 System.out.println("Invalid radius!");
+            }
         } while (!valid);
-
     }
 
     public void computeArea(){
@@ -43,7 +46,7 @@ public class Circle extends Shape implements Drawable {
     
     public void draw(){
         Canvas canvas = Canvas.getCanvas();
-        int position = (int)(Math.random() * 100);
+        int position = (int) (Math.random() * 100);
         canvas.draw(this, "blue", new Ellipse2D.Double(position, position, (int)radius*2, (int)radius*2));
     }
 }

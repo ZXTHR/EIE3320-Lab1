@@ -14,24 +14,28 @@ public class Square extends Shape implements Drawable{
 
     public void readShape(){
         boolean valid = false;
+        Scanner input = new Scanner(System.in);
         do {
+            try {
             System.out.println("Please input the length:");
-            Scanner input = new Scanner(System.in);
-            if (input.hasNextFloat()) {
-                length = input.nextFloat();
-                return;
-            } 
-            else 
+            length = Float.parseFloat(input.next());
+            if (length <= 0) {
                 System.out.println("Invalid length!");
+            } else 
+                return;
+            }
+            catch (NumberFormatException e) {
+                System.out.println("Invalid length!");
+            }
         } while (!valid);
     }
 
     public void computeArea(){
-        super.area = (float) Math.pow(length,2);
+        super.area = (float) (Math.pow(length,2));
     }
 
     public void computePerimeter(){
-        super.perimeter = (float) length * 4;
+        super.perimeter = (float) (length * 4);
     }
 
     public void displayShape(){
@@ -41,7 +45,7 @@ public class Square extends Shape implements Drawable{
 
     public void draw(){
         Canvas canvas = Canvas.getCanvas();
-        int position = (int)(Math.random() * 100);
+        int position = (int) (Math.random() * 100);
         canvas.draw(this, "blue", new java.awt.Rectangle(position, position, (int)length, (int)length));
     }
 }

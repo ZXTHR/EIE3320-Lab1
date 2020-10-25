@@ -12,32 +12,40 @@ public class Rectangle extends Shape implements Drawable
    }
    public void readShape(){
        boolean valid = false;
+       Scanner input = new Scanner(System.in);
        do {
+           try {
            System.out.println("Please input the length:");
-           Scanner input = new Scanner(System.in);
-           if (input.hasNextFloat()) {
-               length = input.nextFloat();
+           length = Float.parseFloat(input.next());
+           if (length <= 0) {
+               System.out.println("Invalid length!");
+           } else 
                valid = true;
-           } else System.out.println("Invalid length!");
+           }
+           catch (NumberFormatException e) {
+               System.out.println("Invalid length!");
+           }
        } while (!valid);
        valid = false;
        do {
+           try {
            System.out.println("Please input the width:");
-           Scanner input = new Scanner(System.in);
-           if (input.hasNextFloat()) {
-               width = input.nextFloat();
-               valid = true;
-           } else System.out.println("Invalid width!");
+           width = Float.parseFloat(input.next());
+           if (width <= 0) {
+               System.out.println("Invalid width!");
+           } else 
+               return;
+           }
+           catch (NumberFormatException e) {
+               System.out.println("Invalid width!");
+           }
        } while (!valid);
-       this.computeArea();
-       this.computePerimeter();
-       this.displayShape();
    }
    public void computeArea(){
-        area = length*width;
+        area = (float) (length * width);
    }
    public void computePerimeter(){
-        perimeter = 2*length+2*width;
+        perimeter = (float) (length * 2 + width * 2);
    }
    public void displayShape(){
         System.out.printf("Area of rectangle = %.1f\n", area);
@@ -45,7 +53,7 @@ public class Rectangle extends Shape implements Drawable
    }
    public void draw(){
        Canvas canvas = Canvas.getCanvas();
-       int position = (int)(Math.random() * 100);
+       int position = (int) (Math.random() * 100);
        canvas.draw(this, "blue", new java.awt.Rectangle(position, position, (int)length, (int)width));
    }
 }
