@@ -1,3 +1,11 @@
+/**
+ * ShapeTester.java
+ *
+ * @author: Ku Wing Fung 18075712d
+ * @author: Wong Tsz Hin 18050573d
+ *
+ * 
+ */
 import java.util.Scanner;
 
 public class ShapeTester
@@ -14,23 +22,23 @@ public class ShapeTester
                 System.out.println("Invalid command!");
             } else {
                 switch (inputValue){
-                    case "c": 
+                    case "c": //Draw Circle
                             showInfo(new Circle());
                             break;
-                    case "s": 
+                    case "s": //Draw Square
                             showInfo(new Square());
                             break;
-                    case "r": 
+                    case "r": //Draw Rectangle
                             showInfo(new Rectangle());
                             break;
                     case "x": 
-                            System.exit(0);
+                            System.exit(0); //Quit the program
                     default:  
                             System.out.println("Invalid command!"); 
                             break;
                 }
             }
-        } while (running);
+        } while (running); //Avoid using while(1) or while(true) because it is bad practice
     }
 
     public static void showMenu(){

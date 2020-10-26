@@ -1,3 +1,11 @@
+/**
+ * Square.java
+ *
+ * @author: Ku Wing Fung 18075712d
+ * @author: Wong Tsz Hin 18050573d
+ *
+ * 
+ */
 import java.util.Scanner;
 
 public class Square extends Shape implements Drawable{
@@ -27,7 +35,7 @@ public class Square extends Shape implements Drawable{
             catch (NumberFormatException e) {
                 System.out.println("Invalid length!");
             }
-        } while (!valid);
+        } while (!valid);  //Avoid using while(1) or while(true) because it is bad practice
     }
 
     public void computeArea(){
@@ -45,7 +53,8 @@ public class Square extends Shape implements Drawable{
 
     public void draw(){
         Canvas canvas = Canvas.getCanvas();
-        int position = (int) (Math.random() * 100);
-        canvas.draw(this, "blue", new java.awt.Rectangle(position, position, (int)length, (int)length));
+        int posX = (int) (Math.random() * 100);
+        int posY = (int) (Math.random() * 100);
+        canvas.draw(this, "blue", new java.awt.Rectangle(posX, posY, (int)length, (int)length));
     }
 }
