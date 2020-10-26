@@ -1,4 +1,4 @@
-public abstract class Shape {
+public abstract class Shape implements Drawable {
 
     protected float area;
     protected float perimeter;
